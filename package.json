@@ -7,7 +7,7 @@
   "author": "Danny Guo <dannyguo91@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "csv-parser": "^2.2.0",
+    "neat-csv": "^4.0.0",
     "prompts": "^2.0.4",
     "puppeteer-core": "^1.13.0"
   },

@@ -17,6 +17,10 @@ function mapHeaders({header, index}) {
         return 'costBasis';
     } else if (header === 'Reporting Category') {
         return 'reportingCategory';
+    } else if (header === 'Wash Sale Loss Disallowed') {
+        return 'washSaleLossDisallowed';
+    } else if (header === 'Federal Income Tax Withheld') {
+        return 'federalIncomeTaxWithheld';
     }
 
     return null;
@@ -24,6 +28,8 @@ function mapHeaders({header, index}) {
 
 async function processTransaction(page, transaction) {
     console.log(transaction);
+
+    await page.waitFor(1000);
 
     await page.type('#edt_00', transaction.description);
     await page.type('#edt_01', transaction.dateSold);
@@ -42,8 +48,18 @@ async function processTransaction(page, transaction) {
 
     await page.select('#combo_00', category);
 
-    // "I'll enter additional info on my own"
+    // "I'll enter additional info on my own" button
     await page.click('#Ill_00');
+
+    await page.waitFor('input[aria-label="Wash sale loss disallowed"]');
+
+    await page.type('#edt_01', transaction.washSaleLossDisallowed);
+    await page.type('#edt_02', transaction.federalIncomeTaxWithheld);
+
+    // "Done" button
+    await page.click('#Done_00');
+
+    await page.waitFor('#radio_00\\:0');
 }
 
 async function logIn(page) {
@@ -130,8 +146,19 @@ async function getBrowser() {
     let transactions = fs.readFileSync('betterment-1099-b.csv');
     transactions = await csv(transactions, {mapHeaders});
 
-    for (let transaction of transactions) {
-        await processTransaction(page, transaction);
-        break;
+    for (let i = 0; i < transactions.length; i++) {
+        await processTransaction(page, transactions[i]);
+
+        if (i < transactions.length - 1) {
+            await page.click('#radio_00\\:0');
+        } else {
+            await page.click('#radio_01\\:0');
+        }
+
+        await page.click('#Continue_00');
+
+        if (i < transactions.length - 1) {
+            await page.waitFor('#edt_00');
+        }
     }
 })();

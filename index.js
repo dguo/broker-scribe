@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const csv = require('neat-csv');
 const prompts = require('prompts');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 
 function mapHeaders({header, index}) {
     if (header === 'Description') {
@@ -58,8 +58,6 @@ async function processTransaction(page, transaction) {
 
     // "Done" button
     await page.click('#Done_00');
-
-    await page.waitFor('#radio_00\\:0');
 }
 
 async function logIn(page) {
@@ -108,9 +106,7 @@ async function logIn(page) {
             {type: 'text', name: 'mfaCode', message: 'MFA code'},
         ]);
 
-        await page.evaluate(mfaCode => {
-            document.getElementById('ius-mfa-confirm-code').value = mfaCode;
-        }, mfaCode);
+        await page.type('#ius-mfa-confirm-code', mfaCode);
 
         await page.click('#ius-mfa-otp-submit-btn');
     }
@@ -119,8 +115,6 @@ async function logIn(page) {
 async function getBrowser() {
     const browser = await puppeteer.launch({
         defaultViewport: null,
-        executablePath:
-            '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
         headless: false,
     });
 
@@ -149,13 +143,22 @@ async function getBrowser() {
     for (let i = 0; i < transactions.length; i++) {
         await processTransaction(page, transactions[i]);
 
+        await page.waitFor('#radio_00\\:0');
+        await page.waitFor('#Continue_00');
+
         if (i < transactions.length - 1) {
-            await page.click('#radio_00\\:0');
+            await page.evaluate(() => {
+                document.querySelector('#radio_00\\:0').click();
+            });
         } else {
-            await page.click('#radio_01\\:0');
+            await page.evaluate(() => {
+                document.querySelector('#radio_01\\:0').click();
+            });
         }
 
-        await page.click('#Continue_00');
+        await page.evaluate(() => {
+            document.querySelector('#Continue_00').click();
+        });
 
         if (i < transactions.length - 1) {
             await page.waitFor('#edt_00');

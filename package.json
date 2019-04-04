@@ -9,7 +9,7 @@
   "dependencies": {
     "neat-csv": "^4.0.0",
     "prompts": "^2.0.4",
-    "puppeteer-core": "^1.13.0"
+    "puppeteer": "^1.14.0"
   },
   "devDependencies": {
     "prettier": "^1.16.4"

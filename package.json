@@ -1,17 +1,20 @@
 {
-  "name": "broker-scribe",
-  "version": "0.1.0",
-  "description": "Import 1099 transactions into TurboTax Online",
-  "main": "index.js",
-  "repository": "https://github.com/dguo/broker-scribe.git",
-  "author": "Danny Guo <dannyguo91@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "neat-csv": "^4.0.0",
-    "prompts": "^2.0.4",
-    "puppeteer": "^1.14.0"
-  },
-  "devDependencies": {
-    "prettier": "^1.16.4"
-  }
+    "name": "broker-scribe",
+    "version": "0.1.0",
+    "description": "Import 1099 transactions into TurboTax Online",
+    "main": "index.js",
+    "repository": "https://github.com/dguo/broker-scribe.git",
+    "author": "Danny Guo <dannyguo91@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "neat-csv": "^4.0.0",
+        "prompts": "^2.0.4",
+        "puppeteer": "^1.14.0"
+    },
+    "devDependencies": {
+        "prettier": "^1.16.4"
+    }
 }

@@ -27,6 +27,10 @@ plan, in part because of Intuit's [lobbying
 efforts](https://www.propublica.org/article/filing-taxes-could-be-free-simple-hr-block-intuit-lobbying-against-it)
 against a simpler tax filing system.
 
+I wrote a [blog
+post](https://www.dannyguo.com/blog/automating-turbotax-data-entry-with-puppeteer/)
+on my experience writing this script.
+
 ## Requirements
 
 * [Node](https://nodejs.org/) (at least v8 for [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) support)

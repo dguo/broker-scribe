@@ -1,0 +1,3 @@
+# Ensure line endings are normalized
+# https://stackoverflow.com/a/21473084/1481479
+* text=auto

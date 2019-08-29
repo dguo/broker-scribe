@@ -7,6 +7,8 @@
     "author": "Danny Guo <dannyguo91@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "format": "prettier --write \"./**/*.{js,json}\"",
+        "format:check": "prettier --list-different \"./**/*.{js,json}\"",
         "start": "node index.js"
     },
     "dependencies": {
@@ -15,6 +17,10 @@
         "puppeteer": "^1.14.0"
     },
     "devDependencies": {
-        "prettier": "^1.16.4"
+        "prettier": "^1.18.2"
+    },
+    "prettier": {
+        "bracketSpacing": false,
+        "tabWidth": 4
     }
 }

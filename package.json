@@ -9,6 +9,7 @@
     "scripts": {
         "format": "prettier --write \"./**/*.{js,json}\"",
         "format:check": "prettier --list-different \"./**/*.{js,json}\"",
+        "lint": "eslint *.js",
         "start": "node index.js"
     },
     "dependencies": {
@@ -17,7 +18,23 @@
         "puppeteer": "^1.14.0"
     },
     "devDependencies": {
+        "eslint": "^6.2.2",
+        "eslint-config-prettier": "^6.1.0",
         "prettier": "^1.18.2"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es6": true,
+            "node": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "prettier"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 8
+        }
     },
     "prettier": {
         "bracketSpacing": false,

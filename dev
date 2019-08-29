@@ -22,6 +22,10 @@ def command(help):
 def format(args, remaining):
     return run(DOCKER_RUN + ['yarn', 'run', 'format']).returncode
 
+@command('Lint the code with ESLint')
+def lint(args, remaining):
+    return run(DOCKER_RUN + ['yarn', 'run', 'lint']).returncode
+
 @command('Bring up a shell')
 def sh(args, remaining):
     return run(DOCKER_RUN + ['sh']).returncode

@@ -4,7 +4,7 @@ const csv = require("neat-csv");
 const prompts = require("prompts");
 const puppeteer = require("puppeteer");
 
-function mapHeaders({header, index}) {
+function mapHeaders({header}) {
     if (header === "Description") {
         return "description";
     } else if (header === "Date Acquired") {

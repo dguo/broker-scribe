@@ -1,5 +1,7 @@
 # BrokerScribe
 
+[![Build Status](https://travis-ci.org/dguo/broker-scribe.svg?branch=master)](https://travis-ci.org/dguo/broker-scribe)
+
 BrokerScribe reads
 [1099-B](https://www.investopedia.com/terms/f/form-1099-b.asp) transactions from
 the CSV file provided by [Betterment](https://www.betterment.com/) and enters

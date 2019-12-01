@@ -1,6 +1,6 @@
 # BrokerScribe
 
-[![Build Status](https://travis-ci.org/dguo/broker-scribe.svg?branch=master)](https://travis-ci.org/dguo/broker-scribe)
+[![CI status](https://github.com/dguo/broker-scribe/workflows/CI/badge.svg)](https://github.com/dguo/broker-scribe/actions?query=branch%3Amaster)
 
 BrokerScribe reads
 [1099-B](https://www.investopedia.com/terms/f/form-1099-b.asp) transactions from

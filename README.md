@@ -1,6 +1,6 @@
 # BrokerScribe
 
-[![CI status](https://github.com/dguo/broker-scribe/workflows/CI/badge.svg)](https://github.com/dguo/broker-scribe/actions?query=branch%3Amaster)
+[![CI status](https://github.com/dguo/broker-scribe/workflows/CI/badge.svg)](https://github.com/dguo/broker-scribe/actions?query=branch%3Amain)
 
 BrokerScribe reads
 [1099-B](https://www.investopedia.com/terms/f/form-1099-b.asp) transactions from
@@ -9,9 +9,10 @@ them into [Intuit](https://www.intuit.com/)'s [TurboTax
 Online](https://turbotax.intuit.com/) using
 [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 
-Disclaimer: I used this for my 2018 tax return, but I only worked on the script
-enough to get the job done. It's not particularly polished, and changes to the
-TurboTax website might mean the script needs to be updated for future years.
+Disclaimer: I have only used this script for my 2018 tax return, and I only
+worked on it enough to get the job done. The code is not particularly polished,
+and I expect that the TurboTax website will inevitably change in a way that
+breaks the code (if it hasn't already).
 
 Here's what it looks like at half speed:
 
@@ -23,15 +24,10 @@ Betterment does have a [TurboTax
 integration](https://www.betterment.com/resources/tax-software-importing/) to do
 this work automatically, but TurboTax [doesn't
 allow](https://turbotax.intuit.com/personal-taxes/compare/online/) importing
-forms unless you have the Premier plan or above. I wrote this script because I
-had hundreds of transactions to enter, but I didn't want to pay for the Premier
-plan, in part because of Intuit's [lobbying
-efforts](https://www.propublica.org/article/filing-taxes-could-be-free-simple-hr-block-intuit-lobbying-against-it)
-against a simpler tax filing system.
-
-I wrote a [blog
+forms unless you have the Premier plan or above. So I wrote this script as a
+workaround. I also wrote a [blog
 post](https://www.dannyguo.com/blog/automating-turbotax-data-entry-with-puppeteer/)
-on my experience writing this script.
+on the experience.
 
 ## Requirements
 
